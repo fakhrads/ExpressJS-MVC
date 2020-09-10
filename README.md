@@ -1,4 +1,4 @@
-# cariKerja.id
+# cariKerja.id [![Build Status](https://travis-ci.org/fakhrads/cariKerja.id.svg?branch=dev-r1)](https://travis-ci.org/fakhrads/cariKerja.id)
 
 cariKerja.id is a website where freelancers can find side jobs or permanent jobs
 
