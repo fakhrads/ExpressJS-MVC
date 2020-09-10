@@ -1,0 +1,78 @@
+extends ../layouts/main
+
+
+block content
+
+  .container-xl
+    // Page title
+    .page-header
+      .row.align-items-center
+        .col-auto
+          h2.page-title
+            | Create New Jobs
+    .row
+      .col-12
+        form.card(action='/jobs/create', method='post')
+         .card-body
+            .mb-3
+              label.form-label Judul Pekerjaan
+              input.form-control(type='text', name='title', placeholder='Ex: Professional Programmer')
+            label.form-label Tipe Job
+            .form-selectgroup-boxes.row.mb-3
+              .col-lg-6
+                label.form-selectgroup-item
+                  input.form-selectgroup-input(type='radio', name='job_type', value='full', checked='')
+                  span.form-selectgroup-label.d-flex.align-items-center.p-3
+                    span.mr-3
+                      span.form-selectgroup-check
+                    span.form-selectgroup-label-content
+                      span.form-selectgroup-title.strong.mb-1 Full Time
+                      span.d-block.text-muted A full-time job is employment in which a person works a minimum number of hours defined as such by their employer.
+              .col-lg-6
+                label.form-selectgroup-item
+                  input.form-selectgroup-input(type='radio', name='report-type', value='part')
+                  span.form-selectgroup-label.d-flex.align-items-center.p-3
+                    span.mr-3
+                      span.form-selectgroup-check
+                    span.form-selectgroup-label-content
+                      span.form-selectgroup-title.strong.mb-1 Part Time
+                      span.d-block.text-muted A part-time job is a form of employment that carries fewer hours per week than a full-time job
+            .row
+              .col-lg-8
+                .mb-3
+                  label.form-label Company
+                  input.form-control(type='text',placeholder='Ex: PT. Celina Indonesia')
+              .col-lg-4
+                .mb-3
+                  label.form-label Status
+                  select.form-select
+                    option(value='1') Publish
+                    option(value='0') Private
+            .row
+              .col-lg-6
+                .mb-3
+                  label.form-label Position
+                  input.form-control(type='text', placeholder='Ex: Teams Leader')
+              .col-lg-6
+                .mb-3
+                  label.form-label Category
+                  select.form-select
+                    option(value='1') Business analyst
+                    option(value='0') Marketing Manager 
+              div
+                label.form-label Description
+                textarea.form-control(rows='3',id="editor")
+                br
+              
+            a.btn.btn-link.link-secondary(href='#', data-dismiss='modal')
+              | Cancel
+            a.btn.btn-primary.ml-auto(href='#', data-dismiss='modal')
+              svg.icon(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                path(stroke='none', d='M0 0h24v24H0z')
+                line(x1='12', y1='5', x2='12', y2='19')
+                line(x1='5', y1='12', x2='19', y2='12')
+              |               Create new report
+
+
+        
+

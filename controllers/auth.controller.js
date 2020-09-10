@@ -15,9 +15,20 @@ exports.signup = (req, res) => {
   res.render('auth/register');
 };
 
-exports.passportRegister = (req, res) => {
-  passport.authenticate('local-signup', {
-    successRedirect: '/home',
-    failureRedirect: '/signup'
+exports.passportRegister = passport.authenticate('local-signup', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/auth/signup',
+    failureFlash : true
+});
+
+exports.passportSignin = passport.authenticate('local-signin', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/auth/signin',
+    failureFlash : true
+});
+
+exports.logout = (req, res) => {
+  req.session.destroy(err => {
+    res.redirect('/');
   });
 };

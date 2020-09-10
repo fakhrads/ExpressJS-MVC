@@ -17,4 +17,5 @@ router.get('/dashboard', verifyAuth.verifyLogin, (req, res) => {
     title: "Dashboard"
   });
 });
+
 module.exports = router;

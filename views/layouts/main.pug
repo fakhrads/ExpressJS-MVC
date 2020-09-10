@@ -18,6 +18,7 @@ html(lang='en')
     link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon')
     // CSS files
     link(href='/dist/css/tabler.min.css', rel='stylesheet')
+    script(src='https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js')
     style.
       body {
       display: none;
@@ -139,3 +140,9 @@ html(lang='en')
     script(src='/dist/js/tabler.min.js')
     script.
       document.body.style.display = "block"
+    script.
+      ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+          console.error( error );
+        } );
