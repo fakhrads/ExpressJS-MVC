@@ -1,0 +1,106 @@
+extends ../layouts/main
+
+
+block content
+
+    .container-xl
+        .page-header
+            .row.align-items-center
+              .col-auto
+                h2.page-title Testings
+
+        .row
+         .col-md-4
+            .card
+                .card-body
+                    h3.card-title Data Scientist
+                     br
+                     small
+                        | PT. Telkom Indonesia
+                    h5
+                        | Full Time
+                        br
+                        | Rp. 25.000.000 s/d Rp. 50.000.000
+                .card-footer
+                    .text-right
+                        if user
+                            a.btn.btn-primary(href='#', data-toggle='modal', data-target='#modal-report')
+                                | Lamar
+                        else
+                            a.btn.btn-primary(href='/auth/signin')
+                                | Lamar
+
+
+    #modal-report.modal.modal-blur.fade(tabindex='-1', role='dialog', aria-hidden='true')
+      .modal-dialog.modal-lg.modal-dialog-centered(role='document')
+        .modal-content
+          .modal-header
+            h5.modal-title New report
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              svg.icon(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                path(stroke='none', d='M0 0h24v24H0z')
+                line(x1='18', y1='6', x2='6', y2='18')
+                line(x1='6', y1='6', x2='18', y2='18')
+          .modal-body
+            .mb-3
+              label.form-label Name
+              input.form-control(type='text', name='example-text-input', placeholder='Your report name')
+            label.form-label Report type
+            .form-selectgroup-boxes.row.mb-3
+              .col-lg-6
+                label.form-selectgroup-item
+                  input.form-selectgroup-input(type='radio', name='report-type', value='1', checked='')
+                  span.form-selectgroup-label.d-flex.align-items-center.p-3
+                    span.mr-3
+                      span.form-selectgroup-check
+                    span.form-selectgroup-label-content
+                      span.form-selectgroup-title.strong.mb-1 Simple
+                      span.d-block.text-muted Provide only basic data needed for the report
+              .col-lg-6
+                label.form-selectgroup-item
+                  input.form-selectgroup-input(type='radio', name='report-type', value='1')
+                  span.form-selectgroup-label.d-flex.align-items-center.p-3
+                    span.mr-3
+                      span.form-selectgroup-check
+                    span.form-selectgroup-label-content
+                      span.form-selectgroup-title.strong.mb-1 Advanced
+                      span.d-block.text-muted Insert charts and additional advanced analyses to be inserted in the report
+            .row
+              .col-lg-8
+                .mb-3
+                  label.form-label Report url
+                  .input-group.input-group-flat
+                    span.input-group-text
+                      | https://tabler.io/reports/
+                    input.form-control.pl-0(type='text', value='report-01')
+              .col-lg-4
+                .mb-3
+                  label.form-label Visibility
+                  select.form-select
+                    option(value='1', selected='') Private
+                    option(value='2') Public
+                    option(value='3') Hidden
+          .modal-body
+            .row
+              .col-lg-6
+                .mb-3
+                  label.form-label Client name
+                  input.form-control(type='text')
+              .col-lg-6
+                .mb-3
+                  label.form-label Reporting period
+                  input.form-control(type='date')
+              .col-lg-12
+                div
+                  label.form-label Additional information
+                  textarea.form-control(rows='3')
+          .modal-footer
+            a.btn.btn-link.link-secondary(href='#', data-dismiss='modal')
+              | Cancel
+            a.btn.btn-primary.ml-auto(href='#', data-dismiss='modal')
+              svg.icon(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                path(stroke='none', d='M0 0h24v24H0z')
+                line(x1='12', y1='5', x2='12', y2='19')
+                line(x1='5', y1='12', x2='19', y2='12')
+              |               Create new report
+

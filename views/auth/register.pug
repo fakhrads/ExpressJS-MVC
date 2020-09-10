@@ -1,0 +1,49 @@
+extend ../layouts/auth
+
+block content
+    .flex-fill.d-flex.flex-column.justify-content-center
+      .container-tight.py-6
+        .text-center.mb-4
+          img(src='/static/logo.svg', height='36', alt='')
+        form.card.card-md(action='/auth/signup', method='post')
+          .card-body
+            h2.mb-5.text-center Buat akun baru
+            if messages.success
+                .alert.alert-success(role='alert')=messages.success
+            if messages.error
+                .alert.alert-danger(role='alert')=messages.error
+            .mb-3
+              label.form-label Nama Depan
+              input.form-control(name='firstname', type='text', placeholder='Masukkan Nama depan anda')
+            .mb-3
+              label.form-label Nama Belakang
+              input.form-control(name='lastname', type='text', placeholder='Masukkan Nama belakang anda')
+            .mb-3
+              label.form-label Username
+              input.form-control(name='username', type='text', placeholder='Masukkan Username anda')
+            .mb-3
+              label.form-label Alamat Email
+              input.form-control(name='email', type='email', placeholder='Enter email')
+            .mb-3
+              label.form-label Password
+              .input-group.input-group-flat
+                input.form-control(name='password', type='password', placeholder='Password', id="myInput")
+                span.input-group-text
+                  a.link-secondary(onclick="showPassword()", title='Show password', data-toggle='tooltip')
+                    svg.icon(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                      path(stroke='none', d='M0 0h24v24H0z')
+                      circle(cx='12', cy='12', r='2')
+                      path(d='M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2')
+                      path(d='M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2')
+            .mb-3
+              label.form-check
+                input.form-check-input(type='checkbox')
+                span.form-check-label
+                  | Agree the 
+                  a(href='./terms-of-service.html', tabindex='-1') terms and policy
+                  | .
+            .form-footer
+              button.btn.btn-primary.btn-block(type='submit') Create new account
+        .text-center.text-muted
+          | Already have account? 
+          a(href='./sign-in.html', tabindex='-1') Sign in

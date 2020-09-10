@@ -1,0 +1,10 @@
+extends ../layouts/main
+
+
+block content
+  
+  - var name = "Dashboard";
+
+  if user
+    p njay
+  p #{user.username}
