@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const books = require("../controllers/books.controller.js");
 const { verifySignUp } = require("../middlewares");
 const controller = require("../controllers/auth.controller");
 
